@@ -1,9 +1,5 @@
-// wav
-var y1 = [];
-var y2 = [];
 
-// conway
-var s = 100;
+var s;
 var w;
 var columns;
 var rows;
@@ -11,74 +7,14 @@ var board;
 var next;
 
 function setup() {
-  	// put setup code here
-  	var myCanvas = createCanvas(1200,166);
-  	myCanvas.parent('myContainer');
+  var myCanvas = createCanvas(windowWidth,166);
+  myCanvas.parent('myContainer');
 
-  	// wav setup
-  	for (var i = 0; i < 1200; i++) {
-  		y1[i] = 120;
-  		y2[i] = 120;
-  	};
-  
-  	// conway setup
-  	setupConway();
-}
+  av = loadImage("./img/avy162x.jpg");
+  av.loadPixels();
 
-function draw() {
-	background(255);
-	data();
-	drawWav();
-	conway();
-}
-
-function conway() {
-	av.loadPixels();
-	image(av,0,0);
-	generate();
-	var c = color(0,0,0);
-  	for ( var i = 0; i < columns; i++) {
-    	for ( var j = 0; j < rows; j++) {
-      		if ((board[i][j] = 1)){
-      			av.set(i+round(random(-1,1)),j+round(random(-1,1)),av.get(i,j));
-      		}
-    	}
-  	}
-	av.updatePixels();
-}
-
-function data() {
-	for (var i = 0; i < width; i=i+4) {
-	  	if(mouseX >= i && mouseX <= i+4)
-	   	{
-	       	if(mouseY >= 0 && mouseY <= 120)
-	       	{
-	         	y1[i] = 40+(mouseY/1.5);
-	        	y2[i] = 160-(mouseY/3);
-	       	};
-	       	if(mouseY >= 120 && mouseY <= 200)
-	       	{
-	         	y1[i] = 40+(height-mouseY);
-	        	y2[i] = 160-((height-mouseY)/2);
-	       	};
-	   	};
-  	};
-}
-
-function drawWav() {
-	for (var i = 0; i < width; i=i+4) {
-	    if(y1[i] != 120)
-	    {
-	    	stroke(80);
-	    	line(i, y1[i], i, 120);
-	    	stroke(200);
-	    	line(i, 120, i, y2[i]);
-		};
-  	};
-}
-
-function setupConway() {
   w = 1;
+  s = 162;
   // Calculate columns and rows
   columns = floor(s/w);
   rows = floor(s/w);
@@ -95,12 +31,50 @@ function setupConway() {
   init();
 }
 
-function mousePressed() {
-  init();
+function draw() {
+  clear();
+  background(255,0);
+  av.loadPixels();
+  image(av,2,2);
+  generate();
+  for ( var i = 0; i < columns;i++) {
+    for ( var j = 0; j < rows;j++) {
+      if ((board[i][j] == 1)){
+        av.set(i+round(random(-1,1)),j+round(random(-1,1)),av.get(i,j));
+      }
+    }
+  }
+  av.updatePixels();
+  drawWav();
 }
 
+function drawWav(){
+  var offset = s+13;
+  
+  noStroke();
+  fill(245,245,245,255);
+  rect(offset, 60, width, 140);
+  
+  for (var i = 0; i < windowWidth-offset-15; i+=3) {
+    stroke(0);
+    line(i+offset, floor(random(65,80)), i+offset, floor(random(120,135)));
+  };
+  
+  noStroke();
+  fill(255,80);
+  rect(offset, 112, width, 140);
+}
+
+// reset board when mouse is pressed
+function mouseMoved() {
+  if(mouseX < 162 && mouseY < 162) {
+    init();
+  }
+}
+
+// Fill board randomly
 function init() {
-  av = loadImage("./img/avy100x.jpg");
+  av = loadImage("./img/avy162x.jpg");
   for (var i = 0; i < columns; i++) {
     for (var j = 0; j < rows; j++) {
       // Lining the edges with 0s
@@ -112,17 +86,20 @@ function init() {
   }
 }
 
+// The process of creating the new generation
 function generate() {
-	var neighbors = 0;
+
   // Loop through every spot in our 2D array and check spots neighbors
   for (var x = 1; x < columns - 1; x++) {
     for (var y = 1; y < rows - 1; y++) {
       // Add up all the states in a 3x3 surrounding grid
+      var neighbors = 0;
       for (var i = -1; i <= 1; i++) {
         for (var j = -1; j <= 1; j++) {
           neighbors += board[x+i][y+j];
         }
       }
+
       // A little trick to subtract the current cell's state since
       // we added it in the above loop
       neighbors -= board[x][y];
@@ -138,4 +115,8 @@ function generate() {
   var temp = board;
   board = next;
   next = temp;
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, 166);
 }

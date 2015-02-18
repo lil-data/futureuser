@@ -3,9 +3,9 @@
  	<script language="javascript"  src="./js/p5/p5.js"></script>
 	<!--<script language="javascript" src="../addons/p5.dom.js"></script>-->
  	<!--<script language="javascript" src="../addons/p5.sound.js"></script>-->
- 	<script type="text/javascript" src="./js/heavy/heavy.js"></script>
- 	<script type="text/javascript" src="./js/heavy/HeavyLib.js"></script>
-   	<script type="text/javascript">
+ 	<!--<script type="text/javascript" src="./js/heavy/heavy.js"></script>-->
+	<!--<script type="text/javascript" src="./js/heavy/HeavyLib.js"></script>-->
+   	<!--<script type="text/javascript">
 
       function hvAudioCallback(buffer) {
         // console.log(buffer);
@@ -41,19 +41,26 @@
         printHook : hvPrintHook, 
         sendHook : hvSendHook
       });
-    </script>
+    </script>-->
  	<script language="javascript" type="text/javascript" src="./js/p5/sketch.js"></script>
 	<style> body {padding: 0; margin: 0;} </style>
 </head>
 <body>
-	<div id="soundcloud" style="display:block;position:absolute;top:0;z-index:1;width:100%"></div>
-	<div id="heavy">
+	<div id="soundcloud" style="display:block;position:absolute;top:0;z-index:1;width:100%">
+		<iframe width="100%"
+				height="166"
+				scrolling="no"
+				frameborder="no"
+				src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/173324934&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
+		</iframe>
+	</div>
+<!-- 	<div id="heavy">
 		<div style="display:block;position:absolute;top:200">
 			<input id="dsp_tgl" type="button" value="OFF" style="color:blue" onclick="toggle_dsp(value);">
 	    	<input id="slider" type="range" min="0" max="1" step="0.01"  value="0.5" onchange="update_gain(value);" oninput="update_gain(value)">
 	    	<output id="gain" for="slider" value="0.5"></output>
 		</div>
-	</div>
-	<div id="myContainer" style="display:block;position:absolute;top:0;z-index:2" ></div>
+	</div> -->
+	<div id="myContainer" style="display:block;position:absolute;top:0;z-index:2"></div>
 </body>
 </html>
