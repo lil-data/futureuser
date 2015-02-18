@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>pd2js</title>
+    <script type="text/javascript" src="./heavy.js"></script>
+    <script type="text/javascript" src="./HeavyLib.js"></script>
+    <script type="text/javascript">
+
+      function hvAudioCallback(buffer) {
+        console.log(buffer);
+      }
+
+      function hvPrintHook(message) {
+        console.log(message);
+      }
+
+      function hvSendHook(message) {
+        console.log(message);
+      }
+
+      function toggle_dsp(value) {
+        if (value == "ON") {
+          heavy.stop();
+          document.querySelector("#dsp_tgl").value = "OFF";
+        }
+        else {
+          heavy.start();
+          document.querySelector("#dsp_tgl").value = "ON";
+        }
+      }
+
+      function update_gain(value) {
+        document.querySelector("#gain").value = value;
+        heavy.sendFloatToReceiver("#param", value);
+      }
+
+      heavy = new HeavyLib({ 
+        blockSize : 2048, 
+        audioCallback : hvAudioCallback,
+        printHook : hvPrintHook, 
+        sendHook : hvSendHook
+      });
+
+    </script>
+  </head>
+
+  <body>
+    <input id="dsp_tgl" type="button" value="OFF" style="color:blue" onclick="toggle_dsp(value);">
+    <input id="slider" type="range" min="0" max="1" step="0.01"  value="0.5" onchange="update_gain(value);" oninput="update_gain(value)">
+    <output id="gain" for="slider" value="0.5"></output>
+  </body>
+</html>
+
