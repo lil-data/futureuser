@@ -1,0 +1,1723 @@
+/*
+Theme Name: DIScontinuity
+Theme URI: http://dismagazine.com
+Description: The launch design of DISmagazine online.
+Version: 1.0
+Author: Nick Scholl
+Author URI: http://trrill.com/
+
+*/
+
+
+
+/* Begin Typography & Colors */
+body {
+	color: #404747;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 62.5%; /* Resets 1em to 10px */
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+
+a { 
+	color: #3B5998;
+	outline: none;
+	text-decoration: none; 
+}
+	a img { border: none; }
+
+center {
+	display: block;
+	text-align: center;
+}
+
+cite {
+	font-style: normal;
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight: normal;
+	line-height: 1em;
+	margin: 0;
+}
+
+ol, ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto 20px;
+}
+.alignleft {
+	float: left;
+	margin: 0 20px 10px 0;
+}
+.alignright {
+	float: right;
+	margin: 0 0 10px 20px;
+}
+
+.center { text-align: center; }
+
+.clear { clear: both; }
+
+/* clearfix - for closing elements containing floats across browsers */
+.clearfix:after {
+	content:"."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+.clearfix { display: inline-block; }
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* End hide from IE-mac */
+
+.hidden {
+	display: none;
+}
+
+.midgraph {
+	margin-top: 7px;
+	margin-bottom: 8px;
+}
+
+
+.site-width {
+	width: 980px;
+	margin: 0 auto 0px;
+}
+	
+
+#wrap { 
+	background: #FFF;
+	border: 1px solid #f1f2f6;
+	margin: 20px auto; 
+	min-height: 600px;
+	padding: 10px 10px 0;
+	width: 960px;
+	-moz-box-shadow: 0 0 20px #aeb4ba;
+	-webkit-box-shadow: 0 0 20px #aeb4ba;
+}
+
+/* .................. */
+
+#header {
+	margin: 10px auto 0;
+	position: relative;
+	width: 980px;	
+}
+
+.logo {
+	float: left;
+	height: 130px;
+	margin: 0 auto 15px 0;
+	width: 126px;
+}
+	.logo a {
+		display: block;
+		height: 130px;
+		text-align: left;
+		text-indent: -6000px;
+	}
+
+#header .logo {
+	float: left;
+}
+	#header .logo a {
+		background: url(http://dismagazine.com/images/headers/logo130.png) no-repeat;
+		background: url(http://dismagazine.com/img/dis-logo@2x.png) no-repeat;
+		background-size: auto 100%;
+	}
+
+#fb_page_like {
+	overflow: hidden;
+	position: absolute;
+	text-align: right;
+	left: 180px;
+	right: 0;
+	top: 0;
+}
+
+div#google_translate_element{
+	display:none!important;
+}
+	#fb_page_like #google_translate_element,
+	#fb_page_like .twitter-follow-button,
+	#fb_page_like .fb-like {
+		display: inline-block;
+		margin-left: 20px;
+		vertical-align: top;
+	}
+
+
+#fb_page_like .masked {
+	left: -60px;
+	position: absolute;
+}
+
+#navigation {
+	border: 1px solid #404747;
+	border-width: 1px 0;
+	clear: both;
+	font-family: "Lucida Grande", "Lucida Console", Helvetica, Arial, sans-serif;
+	line-height: 1em;
+	padding: 5px 0;
+	text-align: left;
+	text-transform: lowercase;
+	width: 980px;
+	margin: 0 auto;
+}
+#navigationMobile{
+	display:none;
+}
+
+#searchform {
+	float: right;
+	padding: 4px 0 0;
+	position: relative;
+	width: 300px;
+}
+.disForm {
+	line-height: 1em;
+	width: 200px;
+}
+	.disForm label {
+		display: none;
+	}
+	.disForm .text {
+		background: #eaedf4;
+		border: 1px solid #404747;
+		font-family: "Lucida Grande", "Lucida Console", Helvetica, Arial, sans-serif;
+		font-size: 10px;
+		height: 14px;
+		padding: 3px 2px 2px;
+		text-transform: lowercase;
+		width: 258px;
+		vertical-align: middle;
+	}
+	.disForm .submit {
+		background: #404747;
+    border: medium none;
+    color: #DDE5E3;
+    font-size: 11px;
+    height: 21px;
+    line-height: 0;
+    padding: 0 10px 4px;
+    text-transform: lowercase;
+    vertical-align: top;
+	}
+	.disForm div:first-child {
+		white-space: nowrap;
+	}
+
+#menu {
+	float: left;
+	font-size: 11px;
+	line-height: 1em;
+	margin: 0;
+	padding: 0;
+}
+	#menu li {
+		float: left;
+		margin-right: 30px;
+	}
+		#menu li:last-child {
+			margin-right: 0;
+		}
+		#menu li#nav_nso {
+			
+		}
+		#menu li a {
+			color: #2a292d;
+			display: block;
+			padding: 9px 7px;
+			text-decoration: none;
+		}
+			#menu li a.over,
+			#menu li a:hover,
+			#menu li.active a,
+			#menu li.active a:hover{
+				background: #404747;
+				color: #FFF;
+			}
+			#menu>li.current-menu-item>a,
+			#menu>li.current-menu-parent>a {
+				background: #dde5e3;
+				border-radius: 5px;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+			}
+			
+#menu ul.sub-menu {
+	box-shadow: 7px 7px 7px #CCC;
+	margin-left: 0;
+	width: 157px;
+	-moz-box-shadow: 3px 3px 7px #111;
+	-webkit-box-shadow: 3px 3px 7px #111;
+}
+	#menu ul.sub-menu li {
+		background: none;
+		border-top: 1px dotted #666;
+		border-width: 1px 0 0;
+		height: auto!important;
+		margin: 0;
+	}
+		#menu ul.sub-menu li:first-child { border-top: 0; }
+		#menu ul.sub-menu li a {
+			border: 0;
+			color: #dde5e3;
+			height: auto!important;
+			line-height: 1em;
+			padding: 9px 7px;
+			text-align: left;
+			text-shadow: none;
+		}
+			#menu ul.sub-menu li a:hover {
+				background: #404747;
+				border-radius: 3px;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+			}
+
+li.parent {
+	position: relative;
+}
+	li.parent a:hover,
+	li.parent a.over {
+		background: #FFF;
+		color: #358997;
+	}
+
+.sub-menu {
+	display: none;
+	background: #404747;
+	position: absolute;
+	z-index: 5000;
+}
+	ul.sub-menu li {
+		display: block;
+		float: none!important;
+		margin: 0;
+		text-align: left;
+	}
+	li.parent>a {}
+	li.parent ul li a {
+		color: #358997;
+		padding: 5px;
+		width: auto!important;
+	}
+
+
+#story { 
+	display: block;
+	height: 1px;
+	margin-bottom: 3px; 
+}
+#content {
+	min-height: 380px;
+	padding-bottom: 10px;
+}
+	
+	body.archive #content {
+		position: relative;
+	}
+	
+	body.page .narrowcolumn {
+		height: auto;
+		margin: 15px auto;
+		width: 550px;
+	}
+	
+
+	
+	
+	
+	.pagePrev a,
+	.pageNext a { 
+		background-repeat: no-repeat;
+		display: block; }
+	
+	.single .horizontal .pagePrev,
+	.archive .pagePrev,
+	.single.category-blog .pagePrev { 
+		display: none;
+		left: -35px;
+		width: 102px;
+	}
+		.single .horizontal .pagePrev a,
+		.archive .pagePrev a,
+		.single.category-blog .pagePrev a {
+			background-image: url(http://dismagazine.com/images/buttons/arrow-left.png);
+			height: 69px;
+		}
+	
+	.single .horizontal .pageNext,
+	.archive .pageNext,
+	.single.category-blog .pageNext { 
+		display: none;
+		right: -45px;
+		width: 102px;
+	}
+		.single .horizontal .pageNext a,
+		.archive .pageNext a,
+		.single.category-blog .pageNext a {
+			background-image: url(http://dismagazine.com/images/buttons/arrow-right.png);
+			height: 69px;
+		}
+		
+		.archive .pagePrev,
+		.single.category-blog .pagePrev {
+			left: 0;
+		}
+		
+		.archive .pageNext,
+		.single.category-blog .pageNext {
+			right: 0;
+		}
+	
+	.archive .pagePrev,
+	.archive .pageNext,
+	.single.category-blog .pagePrev,
+	.single.category-blog .pageNext {
+		display: block;
+		top: 10px;
+	}
+	.archive .navigation,
+	.single.category-blog .navigation {
+		clear: left;
+		float: left;
+		height: 90px;
+		position: relative;
+		width: 640px;
+	}
+
+
+.header-blog { 
+	border-bottom:1px solid #f1f2f6;
+	letter-spacing: -.2px;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+}
+	.header-blog h2 a {
+		background: url(http://dismagazine.com/img/discover-logo@2x.png) no-repeat center center;
+		background-size: auto 100%;
+		display: block;
+		height: 73px;
+		text-align: left;
+		text-indent: -6000px;
+	}
+	
+	.header-disillusioned h2 a {
+		background: #FFF url(http://dismagazine.com/img/disillusioned-logo.svg) no-repeat center top;
+		background-size: auto 100%;
+		display: block;
+		height: 50px;
+		opacity: .5;
+		position: relative;
+		text-align: left;
+		text-indent: -6000px;
+	}
+	
+
+
+	
+
+.jcarousel-skin-dis {
+	float: left;
+	width: 740px;
+	height: 350px;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+#carousel {
+	float: left;
+	width: 740px;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+#carousel .carousel { 
+	height: 350px; 
+	overflow: hidden;
+}
+
+#carousel li.story {
+	margin: 0;
+}
+
+#carouselNav {
+	margin-top: 10px;
+	text-align: left;
+}
+	#carouselNav button {
+		height: 5px;
+		margin: 0 3px 0 0;
+		width: 5px;
+	}
+
+#sidebar {
+	float: right;
+	position: relative;
+	width: 300px;
+}
+.widget {
+	text-align: left;
+}
+
+.follows {
+	border-top: 1px solid #f1f2f6;
+	clear: both;
+	margin: 0 auto;
+	padding: 0 0 15px;
+	width: 950px;
+}
+
+#articles {
+	clear: both;
+	border-top:1px solid #f1f2f6;
+	padding: 15px 0;	
+}
+
+.box { 
+margin: 0 0 20px;
+}
+
+.archive .pagetitle {
+	border-bottom:1px solid #f1f2f6;
+	letter-spacing: -.2px;
+	padding-bottom: 15px;
+}
+
+#homeStories .widget_discategoryposts {
+	height: 328px;
+}
+
+#signupForm {
+	background: #3B5998;
+	color: #FFF;
+	padding: 5px 10px 12px;
+}
+
+.headline,
+.pagetitle {
+	font-family: "Lucida Grande", "Lucida Console", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 28px;
+	text-align: left;
+}
+
+.pagetitle {
+	color: #c3c3cd;
+	font-weight: normal;
+	margin-bottom: 15px;
+	text-transform: lowercase;
+}
+
+.center { text-align: center; }
+
+.headline small,
+.pagetitle small,
+.postHeader h1 small {
+	font-size: 11px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	line-height: 1em;
+}
+	.headline small a,
+	.pagetitle small a,
+	.postHeader h1 small a {
+		color: #CCC;
+	}
+
+.entry {
+	text-align: justify;
+}
+	.entry {
+		font-size: 14px;
+	}
+	
+	.entry p {
+		font-size: 110%;
+		line-height: 1.5em;
+		text-align: justify;
+	}
+	
+	.entry blockquote,
+	.entry p {
+		font-size: 14px;
+	}
+	.entry blockquote {
+		font-family: Georgia, "Times New Roman", serif;
+		margin:20px auto;
+		width:80%;
+	}
+	.entry h2 {
+		line-height:120%;
+	}
+	
+	.entry ul,
+	.entry ol {
+		margin: 20px 40px;
+		text-align: left;
+	}
+		.entry ul li,
+		.entry ol li {
+			margin-bottom: 1em;
+			font-size: 13px;
+		}
+		.entry ol li {
+			list-style: decimal;
+		}
+		
+	
+	.entry .audioplayer_container { text-align: center; }
+
+
+
+.pinterest-button {
+	display: block;
+	position: relative;
+}
+
+.pinterest-button .pin-it-button,
+.pinterest-button iframe {
+	bottom: 5px;
+	position: absolute;
+	right: 5px;
+	z-index: 2;
+	opacity: .5;
+}
+	.pinterest-button .pin-it-button:hover,
+	.pinterest-button iframe:hover { opacity: 1; }
+
+
+.postFeedback {
+	background: url(http://dismagazine.com/images/bg/scrim-w.png);
+	border:1px solid #FFF;
+	line-height: 20px;
+	padding:3px 5px;
+	position:absolute;
+	left:-81px;
+	right:auto;
+	text-align:right;
+	top:26px;
+	z-index: 500;
+}
+
+	.postFeedback ul li { 
+		padding: 0;
+		text-align: center;
+		vertical-align: middle;
+	}	
+	.postFeedback ul li.facebook {
+		margin-bottom: 7px;
+	}
+	
+
+div.page {
+	height: 650px;
+	margin-bottom: 40px;
+	overflow: hidden;
+	text-align: center;
+	width: 900px;
+}
+	div.page a {
+		color: #3B5998;
+	}
+	div.page a:hover { text-decoration: underline;}
+
+.gallery-size-thumbnail .gallery-icon {
+	height: 190px;
+	text-align: bottom;
+	width: 190px;
+}
+	.gallery-icon a {
+		
+	}
+	.gallery-icon img {
+		border: none!important;
+	}
+
+#intro { 
+	height:440px;
+	padding:150px 40px 20px 20px;
+	text-align: left;
+	width: 740px;
+}
+.vertical #intro {
+	height: auto;
+	padding: 0;
+	width: auto;
+}
+	
+	#outro .byline,
+	#outro .byline p {
+		color: #66696c;
+		font-size: 14px;
+	}
+	
+	#intro .headline {
+		font-size: 40px;
+		letter-spacing: -1.55px;
+		line-height: 1em;
+	}
+		#intro .headline span {
+			font-size: 60px;
+			font-weight: bold;
+		}
+	#intro .byline,
+	#outro .byline {
+		font-size: 13px;
+		line-height: 1.4em;
+		margin-bottom: 10px;
+		margin-top: 8px;
+		text-align: justify;
+	}
+		#intro .byline p { margin: 9px 0; }
+		
+	#outro .byline { margin-bottom: 40px; }
+		#intro .byline a { 
+			border-bottom: 1px solid #dce4e2;
+		}
+			#intro .byline a:hover { 
+				border-bottom: 1px solid #3B5998;
+				text-decoration: none; 
+			}
+	
+	#intro .intro { 
+		font-size:16px;
+		line-height:1.5em;
+		margin-top: 5px;
+		text-align: justify;
+	}
+
+#intro { background: none; }		
+
+#outro { 
+	height:480px;
+	padding:100px 40px 20px 20px;
+	width: auto;
+}
+
+.vertical #outro {
+	height: auto;
+	margin: 60px auto;
+	padding: 0;
+	width: 600px;
+}
+
+.fb_like {
+	background:#eaedf4 none repeat scroll 0 0;
+	border:1px solid #3B5998;
+	margin:15px 0 25px;
+	padding:10px;
+}
+.fb_comments {
+	border-top: 1px dotted #CCC;
+	clear: both;
+	margin: 0 auto;
+	padding: 20px 0;
+	width: 900px;
+	text-align: left;
+}
+
+
+/* Story Positions */
+
+.posStories .story {
+	position: relative;
+}
+
+#icons .story {
+	margin: 15px 10px 0 0;
+	padding: 5px 0 7px;
+	text-align: left;
+	width: 180px;
+}
+
+.story {
+	float: left;
+	padding: 0;
+	margin: 15px 0 0;
+}
+	.story.forthcoming {
+		opacity: .4;
+	}
+	.story .category {
+		color: #757575;
+		display: block;
+		font-size: 10px;
+		margin: 0 auto;
+		padding: 0;
+		text-transform: uppercase;
+		width: 150px;
+	}
+		.story .category a {
+			color: #CCC;
+		}
+
+
+	.story h1 {
+		font-family: "Lucida Grande", "Lucida Console", Helvetica, Arial, sans-serif;
+		font-size: 12px;
+		font-weight: bold;
+		margin: 0 auto 2px;
+		text-align: left;
+		text-transform: none;
+	}
+		.story h1 a { color: #58595b; }
+	.story h2 {
+		color: #888;
+		font-size: 11px;
+		margin: 0 auto;
+		text-align: left;
+		width: 150px;
+	}
+		.story h2 a {
+			color: #888;
+		}
+
+
+.storyImg {
+	background: none;
+	display: block;
+	text-align: center;
+}	
+
+#icons .storyImg {
+	width: 180px;
+	height: 180px;
+}
+
+#icons .story h1 { width: 150px; }
+
+#icons .story img {
+	margin-bottom: 3px;
+	width: 170px;
+}
+#icons .story img.icon-sq {
+	width: 150px;
+}
+
+
+
+.wp-caption {
+	position: relative;
+}
+
+.single p.wp-caption-text { 
+	font-size: 11px;
+	margin: 0; 
+	padding: 0;
+}
+
+.single .vertical p.wp-caption-text { 
+	color: #888; 
+	margin: 8px 0; 
+}
+
+
+.single .caption-wrapper {
+	max-height: 50px;
+}
+.single .vertical .caption-wrapper { 
+	height: auto;
+	position: static;
+}
+	.caption-wrapper p {
+		line-height: 1.46em;
+	}
+
+.fadeThis { display: none; }
+
+.scrim,
+.caption-wrapper {
+	
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	padding: 6px 0;
+	right: 0;
+	text-align: left;
+}
+.scrim {
+	position: absolute;
+}
+
+	
+	.scrim h1,
+	.scrim h2,
+	.wp-caption-text a,
+	.wp-caption-text h1,
+	.wp-caption-text h2 {
+		color: #404747;
+		display: inline;
+	}
+	.scrim h1 {
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.scrim h2,
+	.wp-caption-text h2 {
+		color: #404747;
+		font-size: 11px;
+		margin-left: 3px;
+	}
+
+.storyList .scrim {
+	position: relative;
+}
+	.storyList .scrim h1 {
+		display: block;
+		margin: 0;
+	}
+	.storyList .scrim h2 { font-size: 13px; }
+	
+.storyList li {
+	border-bottom: 1px solid #f1f2f6;
+	float: none;
+	margin: 0;
+	padding: 15px;
+}
+
+	
+	body.home .storyList li { float: left; }
+	body.category-blog .storyList li:hover {
+		background: none;
+	}
+	.storyList li img {
+		float: left;
+		margin: 0 10px 0 0;
+		width: 170px;
+		height: 179px;
+	}
+		.storyList li.blogPost img {
+			float: inherit;
+			margin: inherit;
+			width: auto;
+		}
+	.storyList li img.wp-post-image {
+		width: 170px;
+		height: 179px;
+	}
+	.storyList li .storyInfo {
+		float: left;
+		margin-top: 10px;
+		width: 430px;
+	}
+
+
+.excerpt p {
+	font-size: 12px;
+	line-height: 1.45em;
+}
+
+.call {
+	bottom: -10px;
+	color: #000;
+	display: block;
+	height: 1em;
+	position: absolute;
+	text-align: left;
+	width: 1em;
+}	
+
+.story-thumbnail {
+	width: 190px;
+}
+.story-medium {
+	width: 320px;
+}
+.story-large {
+	height:350px;
+	margin: 0 0 15px;
+	overflow:hidden;
+	width:740px;
+}
+	.story-large .storyImg img { width: 100%; }
+
+
+.blogPost:first-child { margin-bottom: 0; }
+
+.blogPost .entry a {
+	color: #3B5998;	
+}
+
+.postPages {
+	font-family: "Lucida Grande", "Lucida Console", Helvetica, Arial, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 20px auto;
+	text-align: center;
+	text-transform: uppercase;
+}
+	.postPages a {
+		margin: 0 20px;
+	}
+
+.postFooter a {
+	color: #AAA;
+	text-decoration:underline;
+}
+
+.postHeader {
+	color: #C3C3CD;
+	position: relative;
+	text-align: left;
+}
+.postFooter {
+	border-top: 1px dotted #9ca1a6;
+	clear: both;
+	color: #C3C3CD;
+	font-family: "Lucida Grande", "Lucida Console", Helvetica, Arial, sans-serif;
+	line-height: 1.3em;
+	margin-top: 15px;
+	padding: 15px 0 0;
+	text-align: left;
+	text-transform: lowercase;
+}
+
+
+.byline {
+	color: #9ca1a6;
+}
+
+
+/* COMING SOON */
+
+body.page-id-4 {
+	color: #111;
+	font-family: "Lucida Grande", "Lucida Console", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	text-align: center;
+}
+	body.page-id-4 #wrap {
+		width: 100%;%
+	}
+
+	body.page-id-4 #interim {
+		margin-top: 90px;
+	}
+
+	body.page-id-4 #logo {
+		background: url(http://dismagazine.com/images/headers/logo_magnum.jpg) no-repeat center center;
+		border: 1px solid #cac8d1;
+		border-width: 1px 0;
+		height: 339px;
+		left: 0;
+		line-height: 1em;
+		margin: 0 0 8px;
+		position: relative;
+		text-align: center;
+		width: 100%;
+	}
+		body.page-id-4 #logo a {
+			background: none;
+			display: block;
+			height: 339px;
+			margin: 0 auto;
+			outline: none;
+			text-align: left;
+			text-indent: -6000px;
+			width: 452px;
+		}
+	body.page-id-4 #interim h2 {
+		color: #9b9b9d;
+		display: block;
+		font-size: 11px;
+		font-weight: normal;
+		line-height: 1em;
+		margin: 0 auto;
+		padding-right: 102px;
+		text-align: right;
+		text-transform: uppercase;
+		width: 452px;
+	}
+	
+	body.page-id-4 #header, 
+	body.page-id-4 #sidebar,
+	body.page-id-4 .post-edit-link,
+	#post-4 h2 {
+		display: none;
+	}
+	
+#scrim {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: url(http://dismagazine.com/images/bg/scrim.png);
+	color: #FFF;
+	z-index: 999;
+}
+	#scrim div {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: url(http://dismagazine.com/images/bg/scrim.png);
+		padding-top: 200px;
+	}
+		#scrim div h2 {
+			padding-left: 20px;
+		}
+	
+.storyTgt {
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 3;
+}
+
+#footer {
+	bottom: 0;
+	clear: both;
+	font-family: "Lucida Grande", "Lucida Console", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	left: 0;
+	margin: 0 auto;
+	position: fixed;
+	right: 0;
+	text-transform: lowercase;
+	z-index: 12;
+}
+	#footer .logo {
+		border-bottom:0 none;
+		top: 0;
+		height: 73px;
+	}
+		#footer .logo a {
+			background: url(http://dismagazine.com/images/headers/logo_inverted.png) no-repeat scroll center 6px;
+			height: 73px;
+		}
+	#footer .interior {
+		background: #FFF;
+		border-top: 1px solid #404747;
+		margin: 0 auto;
+		padding:5px 10px;
+		width: 962px;
+	}
+	
+	#footer a {
+		color: #404747;
+	}
+	#footer .interior p,
+	#footer .interior ul {
+		margin: 0;
+		padding: 0;
+		width: 48%;
+	}
+	#footer .interior p {
+		float:right;
+		text-align:right;
+	}
+	#footer .interior ul {
+		float: left;
+		text-align: left;
+		width: 48%;
+	}
+		#footer .interior ul li {
+			display: inline;
+			margin: 0 30px 0 0;
+		}
+
+body.post-template-single-plain-php {
+	background: none;
+}
+
+body.post-template-single-plain-php #footer {
+	display: none;
+}
+	
+.pagePrev,
+.pageNext {
+	background-position: center top;
+	background-repeat: no-repeat;
+	height: 102px;
+	position: absolute;
+	top: 256px;
+	width: 69px;
+	z-index: 500;
+}
+.pagePrev a,
+.pageNext a {
+	display: block;
+	height: 102px;
+	text-align: left;
+	text-indent: -6000px;
+}
+
+
+.pagePrev { 
+	left: -80px;
+}
+	.pagePrev a { background-image: url(http://dismagazine.com/images/buttons/arrow-up.png); }
+
+.pageNext { 
+	right: -80px; 
+}
+	.pageNext a { background-image: url(http://dismagazine.com/images/buttons/arrow-down.png); }
+	
+
+
+body.page {
+	height: auto;
+	width: auto;
+	overflow: auto;
+}
+
+#scrim,
+#iframe {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+#scrim {
+	background: url(http://dismagazine.com/images/bg/scrim-w.png);
+	z-index: -1;
+}
+#iframe {
+	z-index: -2;
+}
+
+.reveal {
+	position: relative;
+}
+	.reveal img.hidden {
+		left:0;
+		position: absolute;
+	}
+	
+	
+.reveal .trigger {
+	background: url(http://dismagazine.com/images/buttons/how-to.png) no-repeat;
+	bottom: 0;
+	color: #FFF;
+	cursor: pointer;
+	display: block;
+	font-weight: bold;
+	height: 39px;
+	position: absolute;
+	right: 0;
+	text-indent: -6000px;
+	text-transform: uppercase;
+	top: auto;
+	width: 96px;
+	z-index: 10;
+}
+
+
+
+#IEroot .storyTgt {
+	background: #FFF;
+	filter: alpha(opacity = 0);
+	border: 1px solid #FFF;
+}
+
+body.category-blog #wrap #header {
+	margin-bottom: 0;
+}
+
+
+
+
+body.tax-issues .pagetitle {
+	text-align: center;
+}
+body.tax-issues .storyList {
+	float: none;
+	margin: 0 auto;
+}
+body.tax-issues .issueDescrip {
+	color: #9CA1A6;
+	font-size: 11px;
+	margin: 8px auto;
+	width: 740px;
+	text-align: left;
+}
+
+
+body.page-template-disinfo-php #content {
+	width: auto;
+}
+
+
+/* Featured */
+#featured {
+			width:670px;
+			padding-right:290px;
+			position:relative;
+			height:361px;
+			background:#fff;
+		}
+		#featured ul.ui-tabs-nav {
+			position:absolute;
+			top:0; 
+			left:670px;
+			list-style:none;
+			padding:0; 
+			margin:0;
+			width:290px;
+		}
+		#featured ul.ui-tabs-nav li {
+			border: 1px solid #dde5e3;
+			border-left: 0;
+			line-height: 1.2;
+			margin-bottom: 6px;
+			text-align: left;
+		}
+		#featured ul.ui-tabs-nav li span {
+			display: block;
+			color: #999;
+			font-family: "Lucida Grande","Lucida Console",Helvetica,Arial,sans-serif;
+			font-size:16px;
+			line-height:1.1;
+		}
+		#featured ul.ui-tabs-nav li img {
+			opacity: .65;
+		}
+
+		#featured ul.ui-tabs-nav li small { 
+			color: #CCC;
+			display: block;
+			font-family: Helvetica,Arial,sans-serif;
+			font-size: 11px;
+			line-height: 1.1;
+		}
+		#featured .ui-tabs-panel{
+			border: 1px solid #dde5e3;
+			border-right: 1px solid #FFF;
+			padding: 5px 14px 5px 5px;
+			width:650px; 
+			height:350px;
+			position:relative;
+		  overflow:hidden;
+		}
+		#featured .ui-tabs-hide{
+			display:none;
+		}
+		#featured li.ui-tabs-nav-item a {/*On Hover Style*/
+			display:block;
+			height: 64px;
+			padding: 10px 10px 10px 14px;
+		}
+	
+		#featured li.ui-tabs-selected { /*Selected tab style*/
+			box-shadow: 10px 0 15px #c2c1c1;
+			-moz-box-shadow: 10px 0 15px #c2c1c1;
+			-webkit-box-shadow: 10px 0 15px #c2c1c1;
+		}
+			#featured ul.ui-tabs-nav li.ui-tabs-selected span { color: #58595B; }
+			#featured ul.ui-tabs-nav li.ui-tabs-selected small { color: #888; }
+
+		#featured ul.ui-tabs-nav li img {
+			float:left; 
+			margin:2px 5px;
+			width: 63px;
+			height: 66px;
+			opacity: 1.0;
+			display: none;
+		}
+		
+		.follows { border-top: 0; }
+		
+		#discoverBar {
+			border: 1px solid #dde5e3;
+			border-width: 1px 0;
+			height: 50px;
+			margin: 30px auto 5px;
+			overflow: hidden;
+			position: relative;
+		}
+			#discoverBar>ul {
+				margin: 0 20px;
+			}
+			#discoverBar>ul>li {
+				float: left;
+				margin: 0;
+				width: 230px;
+			}
+				#discoverBar>ul>li img {
+					float: left;
+					margin-right: 8px;
+				}
+				#discoverBar>ul>li small {
+					display: none;
+				}
+
+				#discoverBar>ul>li h1 a {
+					color: #888;
+					display: block;
+					font-size: 11px;
+					font-weight: normal;
+					height: 36px;
+					padding: 10px 4px 4px 10px;
+				}
+				#discoverBar>ul>li:hover a {
+					background: #dde5e3;
+					color: #58595B;
+				}
+				.btnnext,
+				.btnprev { 
+					cursor: pointer;
+					display: block;
+					height: 50px;
+					position:absolute;
+					top: 0;
+					width: 20px;
+					z-index: 10;
+				}
+				.btnnext { 
+					background: url(http://dismagazine.com/images/buttons/bar-right.gif) no-repeat right top;
+					right: 0;
+				}
+				.btnprev { 
+					background: url(http://dismagazine.com/images/buttons/bar-left.gif) no-repeat right top;
+					left: 0;
+				}
+				
+				#discoverBar .disabled {
+					cursor: default;
+					opacity: .4;
+				}
+
+.authorCard {
+	text-align: left;
+}
+
+.single .authorCard {
+	background-color: #FFF;
+	background-color: rgba(255,255,255,.4);
+	border: 1px solid #eee;
+	border: 1px solid rgba(255,255,255,.75);
+	font-size: 11px;
+	line-height: 1.2em;
+	margin: 40px auto;
+	padding: 10px;
+	width: 400px;
+}
+	.single .authorCard a {
+		color: #222;
+		text-decoration: underline;
+		text-shadow: 0 1px 0 rgba(255,255,255,.2);
+	}
+
+.authorCard .entry_author_image img {
+	float: left;
+	margin: 0 20px 0 0;
+}
+	.author .authorCard .entry_author_image img {
+		width: 150px;
+	}
+	.single .authorCard .entry_author_image img {
+		width: 100px;
+	}
+	
+.author .pagetitle {
+	text-transform: none;
+}
+	.single .authorCard h1 {
+		color: #222;
+		font-size: 16px;
+		text-shadow: 0 1px 0 rgba(255,255,255,.3);
+	}
+
+.authorMeta {
+	display: block;
+	margin: 4px 0;
+}
+
+.pageheader {
+	border-bottom:1px solid #f1f2f6;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	text-align: left;
+}				
+	.pageheader h1 {
+		font-family: "Lucida Grande", "Lucida Console", Helvetica, Arial, sans-serif;
+		font-size: 28px;
+		font-weight: bold;
+		letter-spacing: -1px;
+		margin: 0 0 4px;
+		text-align: left;
+	}
+				
+body.home #infscr-loading,
+body.archive #infscr-loading {
+background-color: rgba(255, 255, 255, .75);
+bottom: 0;
+left: 0;
+position: fixed;
+right: 0;
+top: 0;
+font-family: "Lucida Grande","Lucida Console",Helvetica,Arial,sans-serif;
+font-size: 36px;
+color: #FFF;
+font-weight: normal;
+padding-top: 25%;
+text-align: center;
+text-shadow: 2px 2px 2px #666;
+}				
+body.home #infscr-loading img,
+body.archive #infscr-loading img {
+display: none;
+}
+
+.island {
+	background: #f8f8f8;
+	border-bottom: 1px dotted #CCC;
+	text-align: center;
+	margin-bottom: 20px;
+	padding: 20px;
+}
+#div-gpt-ad-1341960950668-0 {
+	text-align: left;
+}
+
+img#wpstats {
+     display: none;
+}
+
+.mobile-only{
+	display:none;
+}
+
+/* Data Issue CSS */
+
+#content.Data #icons .story .post-categories li{
+	display: none;
+}
+
+#content.Data .fb_comments{
+	border-top:0;
+}
+
+#content.Data .postFeedback{
+	left:-95px;
+}
+
+#content.Data .follows{
+	padding:0;
+}
+
+#content.Data #icons{
+	border-top:1px solid #eee;
+}
+
+#content.Data #icons .story{
+	position:relative;
+	float:left;
+	width:100%;height:35px;
+	margin:0;padding:0;
+}
+
+
+#content.Data .pagetitle{
+	position:relative;
+	font:bold 20px "helvetica",helvetica,arial,sans-serif;
+	color:#4183c4;
+	float:left;
+	margin-top:30px;
+	width:100%;
+	text-align:left;
+	margin-left:40px;
+	border:0;
+	padding-top:15px!important;
+}
+
+#content.Data .pagetitle:before{
+	position: absolute;
+	background: url(//web-based.biz/dishub.png) no-repeat;
+	background-size:contain;
+	content:'';
+	width:35px;height:35px;
+	margin-top:-5px;
+	margin-left:-40px;
+}
+
+#content.Data #icons:before{
+	content:"";
+	position: absolute;
+	margin-top:-60px;left:0;
+	width:100%;
+	height:30px;
+	background:#e6f1f6;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	border:1px solid #b7c7cf;
+}
+
+
+#content.Data #icons{
+	padding-top:59px;
+	background:#f8f8f8;
+	border:1px solid #b7c7cf;
+	width:100%;
+}
+
+#content.Data #icons .story .storyImg,
+#content.Data #icons .story .category,
+#content.Data #icons .story .post-categories,
+#content.Data #icons .story h1{
+	position:relative;
+	float:left;
+	margin:0;padding:0;
+	margin-right:10px;
+}
+
+#content.Data #icons .story{
+	border-bottom:1px solid #eee;
+}
+
+#content.Data #icons .story .storyImg{
+	margin:5px 10px 5px 0px;
+	width:20px;
+	max-height:20px;
+}
+
+#content.Data #icons .story .storyImg{
+	background:url(http://dismagazine.com/uploads/2015/DataIssue/folder.png) no-repeat;
+	background-size:18px;
+	background-position:5px 5px;
+}
+
+#content.Data #icons .story .storyImg img{
+	width:100%;
+	display:none;
+}
+
+
+
+#content.Data #icons .story h2{
+	position: relative;
+	float:left;
+	/* padding:13px 0; */
+	height:15px;
+	overflow:hidden;
+	margin:10px 0;
+	padding:1px;
+	font:13px/1.4 Helvetica, arial;
+	width:500px;
+	letter-spacing: 0.01em;
+}
+
+#content.Data .teaser{
+position:relative;
+float:left;
+width:200px;
+}
+
+#content.Data .teaser::first-line{
+content:"…";
+	
+}
+
+/*
+#content.Data .teaser:after{
+content:"…"
+}
+*/
+
+
+#content.Data .postdate{
+position:relative;
+float:right;
+letter-spacing: 0.03em;
+}
+
+
+#content.Data #icons .story h1,
+#content.Data .story h1 a{
+	font:normal 13px arial;
+	color:#4183c4;
+	/* padding:5px 0!important; */
+	height:16px;
+	width:400px;
+	overflow:hidden;
+}
+
+#content.Data #icons .story h1{
+	margin-top:2px;
+}
+
+#content.Data .story h1 a:hover{
+	text-decoration: underline;
+}
+
+#content.Data #icons .story h1,
+#content.Data #icons .story h1 a{
+	position:relative;
+	float:left;
+}
+
+
+
+#content.Data #icons .story h1,
+#content.Data #icons .story h1 a{
+	color:#e6f1f6;
+	
+}
+
+#content.Data h1{margin-top:11px!important;}
+
+
+#content.Data #icons .story h1::first-line,
+#content.Data #icons .story a::first-line{
+	color:#4183c4!important;
+	
+}
+
+#content.Data #icons .story:nth-child(1):before{
+	content:"Issue Edited by Marvin Jordan and Mike Pepi";
+	position: absolute;
+	font:normal 10px arial;
+	margin-top:-29px;left:0;
+	padding-top:12px;
+	padding-left:8px;
+	box-sizing: border-box;
+	width:100%;
+	height:35px;
+	opacity:0.8;
+	background:white;
+	border-bottom:1px solid #eee;
+}
+
+
+#content.Data #icons .story:nth-child(1) .teaser{
+	width:185px;
+}
+#content.Data #icons .story:nth-child(2) .teaser{
+	width:184px;
+}
+
+
+
+@media only screen 
+and (max-width : 600px) {
+
+#content.Data h1{margin-top:0!important;padding-left:5px!important;}
+#content.Data #icons .story:nth-child(1){overflow:visible}
+#content.Data #icons .story:nth-child(1):before{
+	margin-top:-30px;
+	height:30px;
+}
+}

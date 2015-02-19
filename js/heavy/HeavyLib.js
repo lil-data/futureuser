@@ -34,24 +34,26 @@
       this.blockSize = this.webAudioProcessor.bufferSize;
 
       // allocate a temporary buffers (pointer size is 4 bytes in javascript)
-      var numOutChannels = this.getNumOutputChannels();
-      console.log(this.blockSize, numOutChannels);
-      this.outBuffer = Module._malloc(numOutChannels * this.blockSize * 4);
+      this.outBuffer = Module._malloc(this.getNumOutputChannels() * this.blockSize * 4);
 
       // attach process callback
       var that = this;
       this.webAudioProcessor.onaudioprocess = function(e) {
-        var output = e.outputBuffer.getChannelData(0);
+        var lengthInSamples = that.blockSize * that.getNumOutputChannels();
 
-        var heapOutBytes = new Float32Array(Module.HEAPF32.buffer, that.outBuffer, that.blockSize);
+        var heapOutBytes = new Float32Array(Module.HEAPF32.buffer, that.outBuffer, lengthInSamples);
         _hv_heavy_process_inline(that.heavyContext, null, heapOutBytes.byteOffset, that.blockSize);
-        var heapFloats = new Float32Array(heapOutBytes.buffer, heapOutBytes.byteOffset, that.blockSize);
+        var heapFloats = new Float32Array(heapOutBytes.buffer, heapOutBytes.byteOffset, lengthInSamples);
 
-        for (var j = 0; j < that.blockSize; j++) {
-          output[j] = heapFloats[j];
+        for (var i = 0; i < that.getNumOutputChannels(); ++i) {
+          var output = e.outputBuffer.getChannelData(i);
+
+          for (var j = 0; j < that.blockSize; j++) {
+            output[j] = heapFloats[j+(i*that.blockSize)];
+          }
         }
 
-        if (that.userAudioCallback) that.userAudioCallback(output);
+        if (that.userAudioCallback) that.userAudioCallback(e.outputBuffer);
       };
 
     } else {
@@ -89,7 +91,6 @@
           hook(m);
         }
       );
-
       _hv_setPrintHook(this.heavyContext, printHook);
     }
   }

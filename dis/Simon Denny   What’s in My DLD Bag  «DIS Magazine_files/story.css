@@ -1,0 +1,79 @@
+#wrap { position: relative; }
+#content {
+		float:none;
+		height: 650px;
+		margin:20px auto 35px;
+		overflow: hidden;
+		padding: 0;
+		position: relative;
+		width:900px;
+	}
+	
+.horizontal #content {
+		height: 630px;
+		margin: 0;
+		overflow-x: auto;
+		width:960px;
+	}
+	.horizontal .entry { display: inline; }
+	.horizontal .page { 
+		float: left; 
+		margin-bottom: 0;
+		width: auto;
+	}
+	.horizontal .post {
+		display: block;
+	}
+	
+	.horizontal #intro,
+	.horizontal #outro {
+		padding: 150px 40px 20px;
+		width: 880px;
+	}
+	
+.narrow .entry {
+	margin: 0 auto;
+	width: 600px;
+}	
+	
+.post {
+	margin: 0 auto;
+	top: 0;
+}
+.vertical #content {
+	height: auto!important;
+}
+	.vertical .page {
+		height: auto!important;
+	}
+	.vertical #intro {
+		height: auto!important;
+		margin-bottom: 20px;
+		padding: 0;
+		text-align: justify;
+	}	
+	
+.vertical .pagePrev,
+.vertical .pageNext {
+	bottom: 55px;
+	height: 69px;
+	top: auto;
+	width: 102px;
+}	
+
+.vertical .pagePrev { 
+	left: -35px;
+}
+	.vertical .pagePrev a { background-image: url(/images/buttons/arrow-left.png); }
+	
+.vertical .pageNext { 
+	right: -45px;
+}
+	.vertical .pageNext a { background-image: url(/images/buttons/arrow-right.png); }
+	
+.entry p {
+		margin: 20px;
+	}
+	.vertical .entry p {
+		margin: 20px 0;
+	}	

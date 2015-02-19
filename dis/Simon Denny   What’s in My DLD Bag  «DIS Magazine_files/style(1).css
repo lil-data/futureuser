@@ -1,0 +1,237 @@
+.mtphr-dnt img {
+  max-width: 100%;
+  height: auto;
+}
+.mtphr-dnt-wrapper {
+	position: relative;
+	width: 100%;
+}
+.mtphr-dnt-inline-title {
+	float: left;
+	padding-right: 5px;
+}
+.mtphr-dnt-tick-container {
+	position: relative;
+}
+.mtphr-dnt-tick-contents {
+	position: relative;
+	overflow: hidden;
+}
+.mtphr-dnt-tick {
+	margin: 0;
+}
+.mtphr-dnt-rotate .mtphr-dnt-tick,
+.mtphr-dnt-scroll .mtphr-dnt-tick {
+	display:none;
+}
+.mtphr-dnt-rotate .mtphr-dnt-tick,
+.mtphr-dnt-scroll .mtphr-dnt-tick {
+	position: absolute;
+	display:none;
+}
+.mtphr-dnt-scroll-left .mtphr-dnt-tick,
+.mtphr-dnt-scroll-right .mtphr-dnt-tick {
+	white-space: nowrap;
+}
+
+/* --------------------------------------------------------- */
+/* !Spinner */
+/* --------------------------------------------------------- */
+
+.mtphr-dnt-icon-spinner {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 30px;
+	height: 30px;
+	font-size: 30px;
+	color: #FFF;	
+	margin: -15px 0 0 -15px;
+	
+	-webkit-animation: mtphr-dnt-spinner-rotation .8s infinite linear;
+	-moz-animation: mtphr-dnt-spinner-rotation .8s infinite linear;
+	-o-animation: mtphr-dnt-spinner-rotation .8s infinite linear;
+	animation: mtphr-dnt-spinner-rotation .8s infinite linear;
+}
+@-webkit-keyframes mtphr-dnt-spinner-rotation {
+	from {-webkit-transform: rotate(0deg);}
+	to {-webkit-transform: rotate(359deg);}
+}
+@-moz-keyframes mtphr-dnt-spinner-rotation {
+	from {-moz-transform: rotate(0deg);}
+	to {-moz-transform: rotate(359deg);}
+}
+@-o-keyframes mtphr-dnt-spinner-rotation {
+	from {-o-transform: rotate(0deg);}
+	to {-o-transform: rotate(359deg);}
+}
+@keyframes mtphr-dnt-spinner-rotation {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(359deg);}
+}
+
+
+/* Directional nav
+------------------------------------------------------------ */
+.mtphr-dnt .mtphr-dnt-nav {
+	position: absolute;
+	top: 50%;
+	margin-top: -19px;
+}
+.mtphr-dnt-nav i {
+	display: block;
+	width: 38px;
+	height: 38px;
+	font-size: 38px;
+	line-height: 38px;
+	color: #DDD;
+	color: rgba(221, 221, 221, .8);
+}
+.mtphr-dnt-nav:hover {
+	text-decoration: none !important;
+}
+.mtphr-dnt-nav:focus {
+	outline: none;
+}
+.mtphr-dnt-nav-prev {
+	left: 10px;
+}
+.mtphr-dnt-nav-next {
+	right: 10px;
+	background-position: -38px 0;
+}
+.mtphr-dnt-nav-hide {
+	opacity: 0;
+	-webkit-transition: opacity .3s linear;
+	-moz-transition: opacity .3s linear;
+	-o-transition: opacity .3s linear;
+	transition: opacity .3s linear;
+}
+.mtphr-dnt-tick-container:hover .mtphr-dnt-nav-hide {
+	opacity: 1;
+}
+
+/* Control nav
+------------------------------------------------------------ */
+
+.mtphr-dnt-control-links {
+	text-align: center;
+}
+.mtphr-dnt-control-number {
+	padding: 2px 5px;
+}
+.mtphr-dnt-control-button {
+	display: inline-block;
+	margin: 0 2px;
+}
+.mtphr-dnt-control-button i {
+	display: block;
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	line-height: 18px;
+	color: #CCC;
+}
+.mtphr-dnt-control-button:hover {
+	text-decoration: none !important;
+}
+.mtphr-dnt-control-button.active i {
+	color: #777;
+}
+.mtphr-dnt-control-button:focus {
+  outline: none;
+}
+
+/* --------------------------------------------------------- */
+/* !Edit link */
+/* --------------------------------------------------------- */
+
+.mtphr-dnt-edit-link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	font-family: Arial, sans-serif !important;
+	font-size: 14px !important;
+	line-height: 16px !important;
+	color: #666;
+	background: #FFF;
+	padding: 6px 8px 4px 7px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	filter: alpha(opacity=50);
+	-moz-opacity: .5;
+	-khtml-opacity: .5;
+	opacity: .5;	
+	-webkit-transition: opacity .2s linear;  
+	-moz-transition: opacity .2s linear;   
+	-o-transition: opacity .2s linear; 
+	transition: opacity .2s linear; 	
+}
+.mtphr-dnt-edit-link:hover {
+	color: #666;
+	filter: alpha(opacity=100);
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+	opacity: 1;
+}
+.mtphr-dnt-edit-link i {
+	float: left;
+	display: block;
+	margin: 1px 3px 0 0;
+}
+
+/* --------------------------------------------------------- */
+/* !Paging */
+/* --------------------------------------------------------- */
+
+.mtphr-dnt-tick-paging {
+	text-align: center;
+	list-style: none;
+}
+.mtphr-dnt-tick-paging a,
+.mtphr-dnt-tick-paging span {
+	margin: 0 4px;
+}
+
+/* --------------------------------------------------------- */
+/* !Grid */
+/* --------------------------------------------------------- */
+
+.mtphr-dnt-grid {
+	width: 100%;
+	border-spacing: 0;
+}
+.mtphr-dnt-grid td {
+	border: none;
+}
+
+/* Add clearfix
+------------------------------------------------------------ */
+
+.mtphr-dnt-clearfix {
+  *zoom: 1;
+}
+.mtphr-dnt-clearfix:before,
+.mtphr-dnt-clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.mtphr-dnt-clearfix:after {
+  clear: both;
+}
+
+
+/**
+ * Default styles
+ *
+ * @since 1.0.0
+ */
+.mtphr-dnt-styled .mtphr-dnt-posts-nav-prev {
+	float: left;
+}
+.mtphr-dnt-styled .mtphr-dnt-posts-nav-next {
+	float: right;
+}
