@@ -2,7 +2,7 @@ var hvyL = [], hvyR = [];
 var hvyBuffer = [hvyL,hvyR];
 var hvyFreq = 100;
 var heavy;
-var socket = io('http://localhost:5000');
+var socket = io('https://zocket.herokuapp.com/');
 
 function hvAudioCallback(buffer) {
   hvyL = buffer.getChannelData(0);
