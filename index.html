@@ -1,118 +1,6 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <title>Data</title>
 
-<script language="javascript"  src="./js/p5/p5.js"></script>
-<!--<script language="javascript" src="../addons/p5.dom.js"></script>-->
-<!--<script language="javascript" src="../addons/p5.sound.js"></script>-->
-<script type="text/javascript" src="./js/heavy/heavy.js"></script>
-<script type="text/javascript" src="./js/heavy/HeavyLib.js"></script>
-<!--   // <script src="./js/socket/socket.io.js"></script>
-  // <script src="./js/socket/socket.main.js"></script> -->
-  <!-- mainz -->
-  <script type="text/javascript" src="./js/heavy/main.js"></script>
-  <script language="javascript" type="text/javascript" src="./js/p5/sketch.js"></script>
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-    }
-    #container {
-      /*padding-top: 100;
-      padding-left: 100;
-      padding-right: 100;*/
-      width: 100%;
-    }
-    #soundcloud {
-      float: right;
-      display:block;
-      position:absolute;
-      /*top:0;*/
-      z-index:1;
-      width:100%;
-    }
-    #processing {
-      float: right;
-      display:block;
-      position:absolute;
-      /*top:0;*/
-      z-index:2;
-    }
-    #heavy {
-      display:inline;
-      position:absolute;
-      width: 100%;
-      z-index: 4;
-    }
-    #webgl {
-      z-index: 5;
-      display: block;
-      position:absolute;
-      top:300px;
-    }
-  </style>
-  <script id="vertex" type="text/x-glsl-vert">
-    varying float vZ;
-    uniform float time;
-    uniform float effectAmount;
-    varying vec2 vUv;
-
-    mat3 rotateAngleAxisMatrix(float angle, vec3 axis) {
-      float c = cos(angle);
-      float s = sin(angle);
-      float t = 1.0 - c;
-      axis = normalize(axis);
-      float x = axis.x, y = axis.y, z = axis.z;
-      return mat3(
-        t*x*x + c,    t*x*y + s*z,  t*x*z - s*y,
-        t*x*y - s*z,  t*y*y + c,    t*y*z + s*x,
-        t*x*z + s*y,  t*y*z - s*x,  t*z*z + c
-        );
-    }
-
-    vec3 rotateAngleAxis(float angle, vec3 axis, vec3 v) {
-      return rotateAngleAxisMatrix(angle, axis) * v;
-    }
-
-    void main() {
-      float idx = floor(position.y/1.1)*80.0 + floor(position.x/1.1);
-      vec3 corner = vec3(floor(position.x/1.1)*1.1, floor(position.y/1.1)*1.1, 0.0);
-      vec3 mid = corner + vec3(0.5, 0.5, 0.0);
-      vec3 rpos = rotateAngleAxis(idx+time, vec3(mod(idx,16.0), -8.0+mod(idx,15.0), 1.0), position - mid) + mid;
-      vec4 fpos = vec4( mix(position,rpos,effectAmount), 1.0 );
-      fpos.x += -35.0;
-      fpos.z += ((sin(idx+time*2.0)))*4.2*effectAmount;
-      fpos.y += ((cos(idx+time*2.0)))*4.2*effectAmount;
-      vec4 mvPosition = modelViewMatrix * fpos;
-      mvPosition.y += 10.0*sin(time*0.5+mvPosition.x/25.0)*effectAmount;
-      mvPosition.x -= 10.0*cos(time*0.5+mvPosition.y/25.0)*effectAmount;
-      vec4 p = projectionMatrix * mvPosition;
-      vUv = uv;
-      vZ = p.z;
-      gl_Position = p;
-    }
-  </script>
-  <script id="fragment" type="text/x-glsl-frag">
-    varying float vZ;
-    varying vec2 vUv;
-    uniform float time;
-    uniform float effectAmount;
-    uniform vec2 size;
-    uniform sampler2D map;
-    void main() {
-      vec2 d = gl_FragCoord.xy - (0.5+0.02*sin(time))*size*vec2(1.0, 1.0);
-      vec4 diffuse = texture2D(map, vUv);
-      float a = sin(time*0.3)*2.0*3.14159;
-      d = vec2( d.x*cos(a) + d.y*sin(a),
-       -d.x*sin(a) + d.y*cos(a));
-      vec2 rg = vec2(0.0)+abs(d)/(0.5*size);
-      float b = abs(vZ) / 540.0;
-      gl_FragColor = mix(diffuse, vec4(rg,b,diffuse.a), effectAmount);
-    }
-  </script>
-  <script src="./webgl/Three.js"></script>
-  <script src="./webgl/dat.gui.min.js"></script>
-  <script src="./webgl/book.js"></script>
-  <script src="./webgl/particles_three.js"></script>
 </head>
 <body>
   <div id="container">
@@ -124,22 +12,18 @@
       src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/173324934&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
     </iframe></div>
     <div id="processing"></div>
-    <div id="heavy">
-      <div style="position:absolute;top:200">
-        <input id="dsp_tgl" type="button" value="OFF" onclick="setProcessingOn(  value);" style="color:blue;">
-        <input id="param-1" type="range" min="0" max="1" step="0.01" value="0.5" onchange=" updateParamOne(value);" oninput="updateParamOne(value)" style="color:blue;display:inline">
-        <output id="paramDisplay-1" for="param-1" value="0.5" style="display:none;">0.77</output>
-        <input id="param-2" type="range" min="0" max="1" step="0.01" value="0.5" onchange=" updateParamTwo(value);" oninput="updateParamTwo(value)" style="display:inline;">
-        <output id="paramDisplay-2" for="param-2" value="0.5" style="display:none;"></output>
-        <input id="param-3" type="range" min="0" max="1" step="0.01" value="0.5" onchange=" updateParamThree(value);" oninput="updateParamThree(value)">
-        <output id="paramDisplay-3" for="param-3" value="0.5" style="display:none;"></output>
-        <input id="param-4" type="range" min="0" max="1" step="0.01" value="0.5" onchange=" updateParamFour(value);" oninput="updateParamFour(value)">
-        <output id="paramDisplay-4" for="param-4" value="0.5" style="display:none;"></output>
-      </div>
+    <div id='textarea'>
+        The <span id='adj'></span> with <span id='size'></span> <span id='type'></span> is that <span id="who"></span> <span id="act"></span> too <span id="speed"></span> to <span id="help"></span> <span id="whom"></span> from the <span id='moral'></span> of <span id='society'></span>, which <span id='demean'></span> the meaning of privacy in their pursuit of <span id='safety'></span>.
     </div>
   </div>
-  <div id="webgl">
-    <canvas style="width: 100%; height: 0px;"></canvas>
-  </div>
 </body>
+<!--libs-->
+<script language="javascript"  src="./js/lib/p5.min.js"></script>
+<script type="text/javascript" src="./js/heavy.js"></script>
+<script type="text/javascript" src="./js/lib/HeavyLib.js"></script>
+<script type="text/javascript" src="./js/lib/socket.io.js"></script>
+<!--our stuff-->
+<script language="javascript" type="text/javascript" src="./js/sketch.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
+<link href="./css/style.css" rel="stylesheet">
 </html>

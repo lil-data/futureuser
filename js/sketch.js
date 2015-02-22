@@ -11,7 +11,8 @@ var track = [tX,tY];
 function setup() {
   var myCanvas = createCanvas(windowWidth,166);
   myCanvas.parent('processing');
-
+  frameRate(20);
+  noLoop();
   av = loadImage("./img/avy162x.jpg");
   av.loadPixels();
 
