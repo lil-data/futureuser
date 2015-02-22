@@ -84,10 +84,10 @@ function makehtml(json){
                     var currentState = e.innerHTML;
                     if(currentState === ops[0]){
                         e.innerHTML = ops[1];
-                        socket.emit("change", key, 1);
+                        socket.emit("change", k, 1);
                     } else {
                         e.innerHTML = ops[0];
-                        socket.emit("change", key, 0);
+                        socket.emit("change", k, 0);
                     }
 
 
@@ -102,8 +102,8 @@ var extracted = extract(st);
 makehtml(extracted);
 
 
-socket.on('init', function(){
-
+socket.on('change', function(key, value){
+    document.getElementById(key).innerHTML = extracted[key][value];
 });
 
 window.onload = function(){
