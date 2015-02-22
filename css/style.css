@@ -1,0 +1,43 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+#container {
+    /*padding-top: 100;
+    padding-left: 100;
+    padding-right: 100;*/
+    width: 100%;
+}
+#soundcloud {
+    float: right;
+    display:block;
+    position:absolute;
+    /*top:0;*/
+    z-index:1;
+    width:100%;
+}
+#processing {
+    float: right;
+    display:block;
+    position:absolute;
+    /*top:0;*/
+    z-index:2;
+}
+#heavy {
+    display:inline;
+    position:absolute;
+    width: 100%;
+    z-index: 4;
+}
+
+#textarea {
+    display: inline;
+    position: absolute;
+    top: 40%;
+    font-family: courier;
+}
+
+.clickable {
+    text-decoration: underline;
+    cursor: pointer;
+}
