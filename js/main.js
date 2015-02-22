@@ -106,6 +106,12 @@ socket.on('change', function(key, value){
     document.getElementById(key).innerHTML = extracted[key][value];
 });
 
+socket.on('init', function(worldstate){
+    for(var key in worldstate) {
+        document.getElementById(key).innerHTML = worldstate[key];
+    }
+});
+
 window.onload = function(){
     heavy = new HeavyLib({
         blockSize : 2048 * 2,
