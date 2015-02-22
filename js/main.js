@@ -1,7 +1,12 @@
 var hvyL = [], hvyR = [];
 var hvyBuffer = [hvyL,hvyR];
 var hvyFreq = 100;
-var heavy;
+var options = {};
+options.blockSize = 2048 * 2;
+options.audioCallback = hvAudioCallback;
+options.printHook = hvPrintHook;
+options.sendHook = hvSendHook;
+heavy = new HeavyLib(options);
 var socket = io('https://zocket.herokuapp.com/');
 
 function hvAudioCallback(buffer) {
@@ -11,44 +16,11 @@ function hvAudioCallback(buffer) {
 }
 
 function hvPrintHook(message) {
-
+    console.log(message);
 }
 
 function hvSendHook(message) {
-
-}
-
-//function setProcessingOn(value) {
-//  if (value == "ON") {
-//    heavy.stop();
-//    document.querySelector("#dsp_tgl").value = "OFF";
-//  }
-//  else {
-//    heavy.start();
-//    document.querySelector("#dsp_tgl").value = "ON";
-//  }
-//}
-
-function updateParamOne(value) {
-  document.querySelector("#paramDisplay-1").value = value;
-  heavy.sendFloatToReceiver("#param-1", value);
-  hvyFreq = value*200;
-  // console.log(hvyFreq);
-}
-
-function updateParamTwo(value) {
-  document.querySelector("#paramDisplay-2").value = value;
-  heavy.sendFloatToReceiver("#param-2", value);
-}
-
-function updateParamThree(value) {
-  document.querySelector("#paramDisplay-3").value = value;
-  heavy.sendFloatToReceiver("#param-3", value);
-}
-
-function updateParamFour(value) {
-  document.querySelector("#paramDisplay-4").value = value;
-  heavy.sendFloatToReceiver("#param-4", value);
+    console.log(message);
 }
 
 function render(){
@@ -113,14 +85,15 @@ socket.on('init', function(worldstate){
 });
 
 window.onload = function(){
-    heavy = new HeavyLib({
-        blockSize : 2048 * 2,
-        audioCallback : hvAudioCallback,
-        printHook : hvPrintHook,
-        sendHook : hvSendHook
-    });
+
     setTimeout(function(){
+        heavy.sendFloatToReceiver("dog", 1.0);
         heavy.start();
     }, 1000);
+
+    setInterval(function(){
+        console.log('changing');
+        heavy.sendFloatToReceiver("cat", Math.random());
+    }, 500);
     render();
 };

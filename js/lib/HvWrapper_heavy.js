@@ -27,8 +27,8 @@
 
       // instiate ScriptProcessor node
       this.webAudioProcessor = WebAudioContext.createScriptProcessor(
-        this.blockSize, 
-        this.getNumInputChannels(), 
+        this.blockSize,
+        this.getNumInputChannels(),
         this.getNumOutputChannels()
       );
       this.blockSize = this.webAudioProcessor.bufferSize;
