@@ -63,8 +63,6 @@ function makehtml(json){
                         socket.emit("change", k, 0);
                         heavy.sendFloatToReceiver(k, 0);
                     }
-
-
                 });
             })();
         }
@@ -78,6 +76,9 @@ makehtml(extracted);
 
 socket.on('change', function(key, value){
     document.getElementById(key).innerHTML = extracted[key][value];
+    var arr = extracted[key];
+    console.log(value);
+    heavy.sendFloatToReceiver(key, value);
 });
 
 socket.on('init', function(worldstate){
@@ -90,11 +91,7 @@ window.onload = function(){
 
     setTimeout(function(){
         heavy.start();
-    }, 1000);
-
-    setInterval(function(){
-        console.log('changing');
-        heavy.sendFloatToReceiver("cat", Math.random());
     }, 500);
+
     render();
 };
