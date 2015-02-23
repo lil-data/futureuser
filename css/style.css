@@ -40,4 +40,6 @@ body {
 .clickable {
     text-decoration: underline;
     cursor: pointer;
+    background-color: rgb(235, 77, 276);
+
 }

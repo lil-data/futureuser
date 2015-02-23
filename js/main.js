@@ -56,10 +56,12 @@ function makehtml(json){
                     var currentState = e.innerHTML;
                     if(currentState === ops[0]){
                         e.innerHTML = ops[1];
+                        e.style.backgroundColor = "rgb(235, 77, 276)";
                         socket.emit("change", k, 1);
                         heavy.sendFloatToReceiver(k, 1);
                     } else {
                         e.innerHTML = ops[0];
+                        e.style.backgroundColor = "rgb(145, 191, 255)";
                         socket.emit("change", k, 0);
                         heavy.sendFloatToReceiver(k, 0);
                     }
@@ -75,15 +77,30 @@ makehtml(extracted);
 
 
 socket.on('change', function(key, value){
-    document.getElementById(key).innerHTML = extracted[key][value];
+    var el = document.getElementById(key)
+    el.innerHTML = extracted[key][value];
     var arr = extracted[key];
     console.log(value);
+    if(value == 1){
+        el.style.backgroundColor = "rgb(235, 77, 276)";
+    } else {
+        e.style.backgroundColor = "rgb(145, 191, 255)";
+    }
     heavy.sendFloatToReceiver(key, value);
 });
 
 socket.on('init', function(worldstate){
+
     for(var key in worldstate) {
-        document.getElementById(key).innerHTML = worldstate[key];
+        var e = document.getElementById(key);
+        var index = extracted[key].indexOf(worldstate[key]);
+        if(index == 1){
+            e.style.backgroundColor = "rgb(235, 77, 276)";
+        } else {
+            e.style.backgroundColor = "rgb(145, 191, 255)";
+        }
+        e.innerHTML = worldstate[key];
+
     }
 });
 
