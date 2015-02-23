@@ -37,7 +37,7 @@ function setup() {
 function draw() {
   clear();
   background(255,0);
-  conway();
+  // conway();
   scope();
   // button();
 }
