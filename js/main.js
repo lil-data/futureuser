@@ -56,12 +56,14 @@ function makehtml(json){
                     var currentState = e.innerHTML;
                     if(currentState === ops[0]){
                         e.innerHTML = ops[1];
+                        console.log("user change, broadcasting and sending", k, 1);
                         e.style.backgroundColor = "rgb(235, 77, 276)";
                         socket.emit("change", k, 1);
                         heavy.sendFloatToReceiver(k, 1);
                     } else {
                         e.innerHTML = ops[0];
                         e.style.backgroundColor = "rgb(145, 191, 255)";
+                        console.log("user change, broadcasting and sending", k, 0);
                         socket.emit("change", k, 0);
                         heavy.sendFloatToReceiver(k, 0);
                     }
@@ -79,12 +81,11 @@ makehtml(extracted);
 socket.on('change', function(key, value){
     var el = document.getElementById(key)
     el.innerHTML = extracted[key][value];
-    var arr = extracted[key];
-    console.log(value);
+    console.log("network change, sending", key, value);
     if(value == 1){
         el.style.backgroundColor = "rgb(235, 77, 276)";
     } else {
-        e.style.backgroundColor = "rgb(145, 191, 255)";
+        el.style.backgroundColor = "rgb(145, 191, 255)";
     }
     heavy.sendFloatToReceiver(key, value);
 });
@@ -94,6 +95,7 @@ socket.on('init', function(worldstate){
     for(var key in worldstate) {
         var e = document.getElementById(key);
         var index = extracted[key].indexOf(worldstate[key]);
+        console.log("network init, sending", key, index);
         heavy.sendFloatToReceiver(key, index);
         if(index == 1){
             e.style.backgroundColor = "rgb(235, 77, 276)";
@@ -111,5 +113,5 @@ window.onload = function(){
         heavy.start();
     }, 500);
 
-    render();
+//    render();
 };
