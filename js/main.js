@@ -57,9 +57,11 @@ function makehtml(json){
                     if(currentState === ops[0]){
                         e.innerHTML = ops[1];
                         socket.emit("change", k, 1);
+                        heavy.sendFloatToReceiver(k, 1);
                     } else {
                         e.innerHTML = ops[0];
                         socket.emit("change", k, 0);
+                        heavy.sendFloatToReceiver(k, 0);
                     }
 
 
@@ -87,7 +89,6 @@ socket.on('init', function(worldstate){
 window.onload = function(){
 
     setTimeout(function(){
-        heavy.sendFloatToReceiver("dog", 1.0);
         heavy.start();
     }, 1000);
 
