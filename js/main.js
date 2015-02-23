@@ -94,6 +94,7 @@ socket.on('init', function(worldstate){
     for(var key in worldstate) {
         var e = document.getElementById(key);
         var index = extracted[key].indexOf(worldstate[key]);
+        heavy.sendFloatToReceiver(key, index);
         if(index == 1){
             e.style.backgroundColor = "rgb(235, 77, 276)";
         } else {
