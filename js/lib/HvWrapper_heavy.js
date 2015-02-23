@@ -87,7 +87,7 @@
     if (hook) {
       // Converts Heavy print callback to a printable message
       var printHook = Runtime.addFunction(function(timeStamp, printName, msg, userData) {
-          var m = (Pointer_stringify(printName) + ": " + Pointer_stringify(msg));
+          var m = ("(" + timeStamp.toFixed(2) + ") " + Pointer_stringify(printName) + ": " + Pointer_stringify(msg));
           hook(m);
         }
       );
