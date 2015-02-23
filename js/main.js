@@ -113,5 +113,5 @@ window.onload = function(){
         heavy.start();
     }, 500);
 
-//    render();
+    render();
 };
