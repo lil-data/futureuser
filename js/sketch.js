@@ -11,7 +11,7 @@ var track = [tX,tY];
 function setup() {
   var myCanvas = createCanvas(windowWidth,166);
   myCanvas.parent('processing');
-  frameRate(20);
+  // frameRate(20);
   noLoop();
   av = loadImage("./img/avy162x.jpg");
   av.loadPixels();
@@ -80,14 +80,10 @@ function scope(){
   noStroke();
   fill(245,245,245,255);
   rect(offset, 60, width, 140);
-  
+  stroke(51);
+
   for (var i = 0; i < windowWidth-offset-15; i+=3) {
-    stroke(51);
-    // line(i+offset, floor(random(65,80)), i+offset, floor(random(120,135)));
-    if(hvyBuffer[i] > 0)
-      line(i+offset, 112-hvyL[i]*70, i+offset,112 );
-    else
-      line(i+offset, 112-hvyL[i]*40, i+offset,112 );
+    line(i+offset, 112-hvyL[i]*45, i+offset,112);
   };
   
   noStroke();

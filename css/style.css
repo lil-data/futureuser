@@ -31,9 +31,9 @@ body {
 }
 
 #textarea {
-    display: inline;
+    display: none;
     position: absolute;
-    top: 40%;
+    top: 20%;
     font-family: courier;
 }
 
@@ -42,4 +42,9 @@ body {
     cursor: pointer;
     background-color: rgb(235, 77, 276);
 
+}
+
+#intro {
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 1.1em;
 }
