@@ -42,7 +42,7 @@ function draw() {
   // button();
 
   var text = document.getElementById("fly").innerHTML;
-  console.log(text);
+//  console.log(text);
   if(text == "grow"){
     document.getElementById("gif").src="./img/grow.gif";
   }
