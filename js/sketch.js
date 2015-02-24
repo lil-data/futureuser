@@ -9,7 +9,7 @@ var tX = 197.5,tY = 33.5;
 var track = [tX,tY];
 
 function setup() {
-  var myCanvas = createCanvas(windowWidth,166);
+  var myCanvas = createCanvas(windowWidth*0.7,166);
   myCanvas.parent('processing');
   // frameRate(20);
   noLoop();
@@ -154,5 +154,5 @@ function generate() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, 166);
+  resizeCanvas(windowWidth*0.7, 166);
 }

@@ -3,10 +3,10 @@ body {
     margin: 0;
 }
 #container {
-    /*padding-top: 100;
-    padding-left: 100;
-    padding-right: 100;*/
-    width: 100%;
+    padding-top: 15;
+    padding-left: 200;
+    /*padding-right: 100;*/
+    width: 60%;
 }
 #soundcloud {
     float: right;
@@ -14,7 +14,7 @@ body {
     position:absolute;
     /*top:0;*/
     z-index:1;
-    width:100%;
+    width:70%;
 }
 #processing {
     float: right;
@@ -26,15 +26,18 @@ body {
 #heavy {
     display:inline;
     position:absolute;
-    width: 100%;
+    width: 70%;
     z-index: 4;
 }
 
 #textarea {
     display: none;
     position: absolute;
+    width: 70%;
     top: 20%;
-    font-family: courier;
+    /*font-family: courier;*/
+    font-size: 1.1em;
+    font-family: "Times New Roman", Georgia, Serif;
 }
 
 .clickable {
