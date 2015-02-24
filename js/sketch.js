@@ -40,6 +40,15 @@ function draw() {
   // conway();
   scope();
   // button();
+
+  var text = document.getElementById("fly").innerHTML;
+  console.log(text);
+  if(text == "grow"){
+    document.getElementById("gif").src="./img/grow.gif";
+  }
+  if(text == "fly"){
+    document.getElementById("gif").src="./img/fly.gif";    
+  }
 }
 
 function button(){
